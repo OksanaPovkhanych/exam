@@ -12,18 +12,18 @@ public class GoogleSearchTests extends BaseTest {
         String searchTerm = "Selenium";
         Assert.assertTrue(googleStartPage.isPageLoaded(), "Google start page didn't load.");
 
-        GoogleSearchPage googleFirstSearchPage = googleStartPage.search(searchTerm);
-        Assert.assertTrue(googleFirstSearchPage.isPageLoaded(), "First page of results didn't load.");
-        Assert.assertEquals(googleFirstSearchPage.getSearchResultsCount(), 9, "Search results count of the first page is wrong.");
-        List<String> searchResultsOfFirstPageList = googleFirstSearchPage.getSearchResultsList();
+        GoogleSearchResultsPage googleFirstSearchResultsPage = googleStartPage.search(searchTerm);
+        Assert.assertTrue(googleFirstSearchResultsPage.isPageLoaded(), "First page of results didn't load.");
+        Assert.assertEquals(googleFirstSearchResultsPage.getSearchResultsCount(), 9, "Search results count of the first page is wrong.");
+        List<String> searchResultsOfFirstPageList = googleFirstSearchResultsPage.getSearchResultsList();
         for (String searchResult: searchResultsOfFirstPageList) {
             Assert.assertTrue(searchResult.contains(searchTerm), "Search term " + searchTerm + " not found in:\n" +searchResult);
         }
 
-        GoogleSearchPage googleSecondSearchPage  = googleFirstSearchPage.goToSecondSearchPage();
-        Assert.assertTrue(googleSecondSearchPage.isPageLoaded(), "Second page of results didn't load.");
-        Assert.assertEquals(googleSecondSearchPage.getSearchResultsCount(), 10, "Search results count of the second page is wrong.");
-        List<String> searchResultsOfSecondPageList = googleSecondSearchPage.getSearchResultsList();
+        GoogleSearchResultsPage googleSecondSearchResultsPage  = googleFirstSearchResultsPage.goToSecondSearchPage();
+        Assert.assertTrue(googleSecondSearchResultsPage.isPageLoaded(), "Second page of results didn't load.");
+        Assert.assertEquals(googleSecondSearchResultsPage.getSearchResultsCount(), 10, "Search results count of the second page is wrong.");
+        List<String> searchResultsOfSecondPageList = googleSecondSearchResultsPage.getSearchResultsList();
         for (String searchResult: searchResultsOfSecondPageList) {
             Assert.assertTrue(searchResult.contains(searchTerm), "Search term " + searchTerm + " not found in:\n" +searchResult);
         }
@@ -34,18 +34,18 @@ public class GoogleSearchTests extends BaseTest {
         String searchTerm = "Selenium";
         Assert.assertTrue(googleStartPage.isPageLoaded(), "Google start page didn't load.");
 
-        GoogleSearchPage googleFirstSearchPage = googleStartPage.search(searchTerm);
-        Assert.assertTrue(googleFirstSearchPage.isPageLoaded(), "First page of results didn't load.");
-        Assert.assertEquals(googleFirstSearchPage.getSearchResultsCount(), 9, "Search results count of the first page is wrong.");
-        List<String> searchResultsOfFirstPageList = googleFirstSearchPage.getSearchResultsList();
+        GoogleSearchResultsPage googleFirstSearchResultsPage = googleStartPage.search(searchTerm);
+        Assert.assertTrue(googleFirstSearchResultsPage.isPageLoaded(), "First page of results didn't load.");
+        Assert.assertEquals(googleFirstSearchResultsPage.getSearchResultsCount(), 9, "Search results count of the first page is wrong.");
+        List<String> searchResultsOfFirstPageList = googleFirstSearchResultsPage.getSearchResultsList();
         for (String searchResult: searchResultsOfFirstPageList) {
             Assert.assertTrue(searchResult.toLowerCase().contains(searchTerm.toLowerCase()), "Search term " + searchTerm + " not found in:\n" +searchResult);
         }
 
-        GoogleSearchPage googleSecondSearchPage  = googleFirstSearchPage.goToSecondSearchPage();
-        Assert.assertTrue(googleSecondSearchPage.isPageLoaded(), "Second page of results didn't load.");
-        Assert.assertEquals(googleSecondSearchPage.getSearchResultsCount(), 10, "Search results count of the second page is wrong.");
-        List<String> searchResultsOfSecondPageList = googleSecondSearchPage.getSearchResultsList();
+        GoogleSearchResultsPage googleSecondSearchResultsPage  = googleFirstSearchResultsPage.goToSecondSearchPage();
+        Assert.assertTrue(googleSecondSearchResultsPage.isPageLoaded(), "Second page of results didn't load.");
+        Assert.assertEquals(googleSecondSearchResultsPage.getSearchResultsCount(), 10, "Search results count of the second page is wrong.");
+        List<String> searchResultsOfSecondPageList = googleSecondSearchResultsPage.getSearchResultsList();
         for (String searchResult: searchResultsOfSecondPageList) {
             Assert.assertTrue(searchResult.toLowerCase().contains(searchTerm.toLowerCase()), "Search term " + searchTerm + " not found in:\n" +searchResult);
         }

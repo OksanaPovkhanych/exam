@@ -23,10 +23,10 @@ public class GoogleStartPage extends BasePage {
                 && (searchField.isDisplayed());
     }
 
-    public GoogleSearchPage search(String searchTerm) {
+    public GoogleSearchResultsPage search(String searchTerm) {
         searchField.sendKeys(searchTerm);
         searchField.sendKeys(Keys.ENTER);
-        return new GoogleSearchPage(driver);
+        return new GoogleSearchResultsPage(driver);
     }
 
 }

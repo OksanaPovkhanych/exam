@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoogleSearchPage extends BasePage{
+public class GoogleSearchResultsPage extends BasePage{
     @FindBy( xpath = "//div[@id='resultStats']")
     private WebElement searchResultTotal;
 
@@ -19,7 +19,7 @@ public class GoogleSearchPage extends BasePage{
     @FindBy( xpath = "//a[@aria-label='Page 2']")
     private WebElement linkToSecondSearchPage;
 
-    public GoogleSearchPage(WebDriver driver) {
+    public GoogleSearchResultsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         waitUntilElementIsClickable(searchResultTotal);
@@ -44,10 +44,10 @@ public class GoogleSearchPage extends BasePage{
     }
 
 
-    public GoogleSearchPage goToSecondSearchPage() {
+    public GoogleSearchResultsPage goToSecondSearchPage() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", linkToSecondSearchPage);
         linkToSecondSearchPage.click();
-        return new GoogleSearchPage(driver);
+        return new GoogleSearchResultsPage(driver);
     }
 
 }
