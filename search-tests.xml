@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Search Test Suite" >
+    <test name="CaseNotSensitive" >
+        <classes>
+            <class name="test.GoogleSearchTests">
+                <methods>
+                    <include name="GoogleCaseNotSensitiveSearchTests" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="CaseSensitive" >
+        <classes>
+            <class name="test.GoogleSearchTests">
+                <methods>
+                    <include name="GoogleCaseSensitiveSearchTests" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+</suite>
